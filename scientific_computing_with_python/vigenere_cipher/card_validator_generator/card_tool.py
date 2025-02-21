@@ -1,7 +1,7 @@
 import random
 
 def luhn_generate_check_digit(partial_card_number):
-    """Calcula o dígito verificador correto para um número de cartão válido."""
+    """Calculates the correct check digit for a valid card number."""
     digits = [int(d) for d in partial_card_number]
     sum_of_odd_digits = sum(digits[-1::-2])
     sum_of_even_digits = sum((d * 2 if d * 2 < 10 else d * 2 - 9) for d in digits[-2::-2])
@@ -10,7 +10,7 @@ def luhn_generate_check_digit(partial_card_number):
     return str(check_digit)
 
 def generate_card_number(card_type):
-    """Gera um número de cartão válido para uma bandeira específica."""
+    """Generates a valid card number for a specific card brand."""
     card_prefixes = {
         "Visa": ["4"],
         "MasterCard": [str(i) for i in range(51, 56)] + [str(i) for i in range(2221, 2721)],
@@ -32,14 +32,14 @@ def generate_card_number(card_type):
     
     full_card_number = partial_card_number + check_digit
 
-    # Verifica se o número gerado é válido antes de retornar
+    # Checks if the generated number is valid before returning
     if verify_card_number(full_card_number):
         return full_card_number
     else:
-        return generate_card_number(card_type)  # Tenta gerar novamente se der erro
+        return generate_card_number(card_type)  # Tries to generate again if invalid
 
 def verify_card_number(card_number):
-    """Verifica se um número de cartão é válido pelo algoritmo de Luhn."""
+    """Checks if a card number is valid using the Luhn algorithm."""
     sum_of_odd_digits = sum(int(digit) for digit in card_number[-1::-2])
     
     sum_of_even_digits = 0
@@ -53,7 +53,7 @@ def verify_card_number(card_number):
     return total % 10 == 0
 
 def get_card_type(card_number):
-    """Detecta a bandeira do cartão com base nos primeiros dígitos."""
+    """Detects the card brand based on the first digits."""
     if card_number.startswith('4') and len(card_number) in [13, 16]:
         return "Visa"
     elif any(card_number.startswith(str(i)) for i in range(51, 56)) or any(card_number.startswith(str(i)) for i in range(2221, 2721)):
@@ -67,40 +67,40 @@ def get_card_type(card_number):
     elif card_number.startswith('35') and len(card_number) == 16:
         return "JCB"
     else:
-        return "Desconhecido"
+        return "Unknown"
 
 def main():
     while True:
-        print("\nEscolha uma opção:")
-        print("1. Validar um número de cartão")
-        print("2. Gerar um número de cartão válido")
-        print("3. Sair")
+        print("\nChoose an option:")
+        print("1. Validate a card number")
+        print("2. Generate a valid card number")
+        print("3. Exit")
 
-        option = input("Digite a opção (1-3): ").strip()
+        option = input("Enter your choice (1-3): ").strip()
 
         if option == "1":
-            card_number = input("Digite o número do cartão (ou 'voltar' para retornar): ").strip()
-            if card_number.lower() == 'voltar':
+            card_number = input("Enter the card number (or 'back' to return): ").strip()
+            if card_number.lower() == 'back':
                 continue
 
             card_translation = str.maketrans({'-': '', ' ': ''})
             translated_card_number = card_number.translate(card_translation)
 
             if not translated_card_number.isdigit():
-                print("Número inválido! Digite apenas números, espaços ou hifens.")
+                print("Invalid number! Enter only digits, spaces, or hyphens.")
                 continue
 
             card_type = get_card_type(translated_card_number)
             is_valid = verify_card_number(translated_card_number)
 
-            print(f"Tipo do cartão: {card_type}")
-            print("Status: VÁLIDO!" if is_valid else "Status: INVÁLIDO!")
+            print(f"Card Type: {card_type}")
+            print("Status: VALID!" if is_valid else "Status: INVALID!")
 
         elif option == "2":
-            print("\nEscolha a bandeira para gerar um cartão:")
-            print("1. Visa\n2. MasterCard\n3. American Express\n4. Diners Club\n5. Discover\n6. JCB\n7. Voltar")
+            print("\nChoose a card brand to generate:")
+            print("1. Visa\n2. MasterCard\n3. American Express\n4. Diners Club\n5. Discover\n6. JCB\n7. Back")
 
-            choice = input("Digite a opção (1-7): ").strip()
+            choice = input("Enter your choice (1-7): ").strip()
             card_types = ["Visa", "MasterCard", "American Express", "Diners Club", "Discover", "JCB"]
 
             if choice == "7":
@@ -108,15 +108,15 @@ def main():
             elif choice in map(str, range(1, 7)):
                 card_type = card_types[int(choice) - 1]
                 generated_card = generate_card_number(card_type)
-                print(f"Cartão gerado ({card_type}): {generated_card}")
+                print(f"Generated Card ({card_type}): {generated_card}")
             else:
-                print("Opção inválida. Tente novamente.")
+                print("Invalid option. Try again.")
 
         elif option == "3":
-            print("Encerrando o programa.")
+            print("Exiting the program.")
             break
         else:
-            print("Opção inválida. Tente novamente.")
+            print("Invalid option. Try again.")
 
 if __name__ == "__main__":
     main()
