@@ -1,51 +1,82 @@
-This project implements the Vigenère Cipher, a classic encryption algorithm used for both encrypting and decrypting text based on a repeating keyword. 
+<h1>Card Validator Generator</h1>
+<p>A Python-based tool to generate and validate credit card numbers using the Luhn algorithm. This project helps developers create valid credit card numbers for testing environments and check the validity of provided card numbers across various card brands.</p>
 
-The cipher shifts each letter in the message according to the corresponding letter in the key, offering a simple yet effective method of cryptography.
-
-<h2>The main features of this project include:</h2>
-
+<h2>Features</h2>
 <ul>
-  <li><strong>Encryption and Decryption Functions:</strong></li>
-  
-The `encrypt` function encodes a given message using a specified key.
-  
-The `decrypt` function decodes the message using the same key, reversing the encryption process.
+<li>Card Number Generation: Generate valid credit card numbers that pass the Luhn check.</li>
+<li>Card Number Validation: Validate whether a given credit card number is valid or not.</li>
+<li>Supported Card Brands: Visa, MasterCard, American Express, Diners Club, Discover, and JCB.</li></ul>
 
-<li><strong>Dynamic Key Input:</strong></li>
-Users are prompted to input a new custom key for encryption/decryption, allowing flexibility in the encryption process.
-<li><strong>Support for Non-Letter Characters:</strong></li>
-Any non-letter characters (spaces, punctuation, numbers) in the message are preserved in their original positions, maintaining the format of the input text.
-<li><strong>Interactive Loop:</strong></li>
-The program runs in an interactive mode, continuously prompting the user for input text and offering the option to modify the encryption key until the user chooses to exit.
-</ul>
-<h2> How It Works:</h2>
-The Vigenère Cipher uses a keyword to determine the shift applied to each letter in the message. The key is repeated or truncated to match the length of the message.
+<h2>Installation</h2>
+<p>Clone the repository and navigate to the project directory:</p>
 
-Each letter in the message is shifted by the number of positions defined by the corresponding letter in the key. For decryption, the reverse operation is applied.
-
-The cipher operates on lowercase English letters, while non-alphabetical characters are left unchanged in the final message.
-
-<h4>Example:</h4>
-Given the text:
-
-```nginx
-mrttaqrhknsw ih puggrur
+```bash
+git clone https://github.com/abilioinsights/free_code_camp.git
+cd free_code_camp/scientific_computing_with_python/card_validator_generator
 ```
+<p>No additional dependencies are required to run the script since it uses only standard Python libraries.</p>
+<h2>Card Number Validation</h2>
+<p>To validate a card number, choose the option to input a number manually:</p>
 
-With the key:
-
-```nginx
-happycoding
+```py
+python card_tool.py
 ```
-The program decrypts it back to:
+<p><strong>Example interaction:</strong></p>
 
-```nginx
-hello zaira
+```yaml
+Choose an option:
+1. Validate a card number
+2. Generate a valid card number
+3. Exit
+
+Enter your choice (1-3): 1
+Enter the card number: 4111111111111111
+
+Card Type: Visa
+Status: VALID!
 ```
+<h2>Card Number Generation</h2>
+<p>You can also generate valid card numbers for testing purposes:</p>
 
-<h2>Usage:</h2>
-Run the program, enter the text you'd like to encrypt or decrypt, and input a custom encryption key when prompted. 
+```markdown
+Choose an option:
+1. Validate a card number
+2. Generate a valid card number
+3. Exit
 
-You can change the key at any time during execution, allowing multiple encryptions and decryptions with different keys in one session.
+Enter your choice (1-3): 2
+```
+<p><strong>Then choose the card type:</strong
 
-This project demonstrates a basic understanding of string manipulation, loops, and conditional logic in Python, while showcasing the classic cryptographic technique of the Vigenère cipher.
+  ```markdown
+Choose a card brand to generate:
+1. Visa
+2. MasterCard
+3. American Express
+4. Diners Club
+5. Discover
+6. JCB
+7. Back
+
+Enter your choice (1-7): 1
+```
+<p><strong>A valid Visa card number will be generated, for example:</strong></p>
+
+```java
+Generated Card (Visa): 4532488243809092
+```
+<h2>Luhn Algorithm</h2>
+<p>This project implements the <a href="https://en.wikipedia.org/wiki/Luhn_algorithm" target="_blank"> Luhn algorithm</a>, also known as the "modulus 10" algorithm, to validate card numbers by ensuring the correct check digit is appended.</p>
+
+<h3>Supported Card Brands</h3>
+<pThe following card brands are supported for generation and validation:</p>
+<ul>
+<li>Visa (16 digits)</li>
+<li>MasterCard (16 digits)</li>
+<li>American Express (15 digits)</li>
+<li>Diners Club (14 digits)</li>
+<li>Discover (16 digits)</li>
+<li>JCB (16 digits)</li>
+  </ul>
+<h2>License</h2>
+<p>This project is open-source and available under the MIT License.</p>
