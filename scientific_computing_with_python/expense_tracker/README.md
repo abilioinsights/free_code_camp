@@ -31,29 +31,6 @@ This Python project is a simple **Expense Tracker** application that allows user
    - Filter expenses by category
    - Exit the program
 
-### Example
-<h2>Expense Tracker</h2>
-<ol>
-<li>Add an expense</li>
-<li>List all expenses</li>
-<li>Show total expenses</li>
-<li>Filter expenses by category</li>
-<li>Exit Enter your choice: 1 Enter amount: 50 Enter category: Food</li>
-</ol>
-<h2>Expense Tracker</h2>
-<ol>
-<li>Add an expense</li>
-<li>List all expenses</li>
-<li>Show total expenses</li>
-<li>Filter expenses by category</li>
-<li>Exit Enter your choice: 2</li>
-<li>All Expenses: Amount: 50.0, Category: Food</li>
-</ol>
-
-## Project Structure
-# The main Python file for tracking and managing expenses
-
-
 ## Functions Overview
 
 - `add_expense(expenses, amount, category)`: Adds an expense entry to the `expenses` list.
