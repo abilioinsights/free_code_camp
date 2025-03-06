@@ -1,27 +1,18 @@
-def hanoi_iterative(n, source, auxiliary, target):
-    rods = {
-        'A': list(range(n, 0, -1)),  # The source rod
-        'B': [],  # The auxiliary rod
-        'C': []   # The target rod
+def initialize_rods(n):
+    """Initialize the rods with disks on the source rod."""
+    return {
+        'A': list(range(n, 0, -1)),  # Source rod
+        'B': [],  # Auxiliary rod
+        'C': []   # Target rod
     }
-    total_moves = 2 ** n - 1
-    print(f"\nTotal moves needed: {total_moves}")
-    
-    for move_num in range(1, total_moves + 1):
-        if move_num % 3 == 1:
-            move_disk(rods, 'A', 'C', n)  # Move between source and target
-        elif move_num % 3 == 2:
-            move_disk(rods, 'A', 'B', n)  # Move between source and auxiliary
-        elif move_num % 3 == 0:
-            move_disk(rods, 'B', 'C', n)  # Move between auxiliary and target
 
-        # Display the progress after each move
-        print(f"\nMove {move_num}:")
-        print(f"Source (A): {rods['A']}")
-        print(f"Auxiliary (B): {rods['B']}")
-        print(f"Target (C): {rods['C']}\n")
-
-def move_disk(rods, source, target, n):
+def move_disk(rods, source, target):
+    """
+    Move a disk between two rods.
+    :param rods: Dictionary containing the rods.
+    :param source: Source rod.
+    :param target: Target rod.
+    """
     if not rods[target]:  # Target rod is empty, move disk from source
         rods[target].append(rods[source].pop())
     elif not rods[source]:  # Source rod is empty, move disk from target
@@ -31,15 +22,45 @@ def move_disk(rods, source, target, n):
     else:  # Move from target to source
         rods[source].append(rods[target].pop())
 
-# Main loop
-while True:
-    try:
-        num_disks = int(input("Enter the number of disks (or type 0 to exit): "))
-        if num_disks == 0:
-            break
-        elif num_disks < 0:
-            print("Please enter a positive number of disks.")
-        else:
-            hanoi_iterative(num_disks, 'A', 'B', 'C')
-    except ValueError:
-        print("Invalid input. Please enter a valid number.")
+def hanoi_iterative(n, source, auxiliary, target):
+    """
+    Solve the Towers of Hanoi problem iteratively.
+    :param n: Number of disks.
+    :param source: Source rod.
+    :param auxiliary: Auxiliary rod.
+    :param target: Target rod.
+    """
+    rods = initialize_rods(n)
+    total_moves = 2 ** n - 1
+    print(f"\nTotal moves needed: {total_moves}")
+    
+    for move_num in range(1, total_moves + 1):
+        if move_num % 3 == 1:
+            move_disk(rods, source, target)  # Move between source and target rods
+        elif move_num % 3 == 2:
+            move_disk(rods, source, auxiliary)  # Move between source and auxiliary rods
+        elif move_num % 3 == 0:
+            move_disk(rods, auxiliary, target)  # Move between auxiliary and target rods
+
+        # Display the progress after each move
+        print(f"\nMove {move_num}:")
+        print(f"Source ({source}): {rods[source]}")
+        print(f"Auxiliary ({auxiliary}): {rods[auxiliary]}")
+        print(f"Target ({target}): {rods[target]}\n")
+
+def main():
+    """Main function to run the Hanoi solver."""
+    while True:
+        try:
+            num_disks = int(input("Enter the number of disks (or type 0 to exit): "))
+            if num_disks == 0:
+                break
+            elif num_disks < 0:
+                print("Please enter a positive number of disks.")
+            else:
+                hanoi_iterative(num_disks, 'A', 'B', 'C')
+        except ValueError:
+            print("Invalid input. Please enter a valid number.")
+
+if __name__ == '__main__':
+    main()
