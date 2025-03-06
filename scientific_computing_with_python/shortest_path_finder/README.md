@@ -1,21 +1,20 @@
-# Shortest Path Finder - Dijkstra Algorithm
+# Dijkstra's Algorithm / Algoritmo de Dijkstra
 
-This Python project implements the **Dijkstra algorithm** to find the shortest path between nodes in a graph. The algorithm calculates the minimum distance from a starting node to other nodes and records the optimal path.
+This Python script implements Dijkstra's algorithm to find the shortest path between two nodes in a graph with non-negative edge weights.
 
-## Features
+Este script Python implementa o algoritmo de Dijkstra para encontrar o caminho mais curto entre dois nós em um grafo com pesos de aresta não negativos.
 
-- Find the shortest path from a start node to a target node.
-- Calculates distances for all nodes in the graph from a start node.
-- Visualize the shortest path and distance for each node.
+## Features / Funcionalidades
+- Finds the shortest path between two nodes. / Encontra o caminho mais curto entre dois nós.
+- Handles graphs with non-negative edge weights. / Lida com grafos com pesos de aresta não negativos.
+- Prints the shortest distance and path for each node. / Imprime a distância e o caminho mais curtos para cada nó.
 
-## Usage
+## How to Use / Como Usar
+Define your graph as a dictionary where each key is a node and the value is a list of tuples representing the connected nodes and their edge weights. Then, call the `shortest_path` function with the start node and optionally the target node.
 
-### Graph Structure
+Defina seu grafo como um dicionário onde cada chave é um nó e o valor é uma lista de tuplas representando os nós conectados e seus pesos de aresta. Em seguida, chame a função `shortest_path` com o nó de início e, opcionalmente, o nó de destino.
 
-The graph is represented as an **adjacency list**, where each node has a list of tuples. Each tuple contains the connected node and the weight of the edge between them.
-
-Example graph:
-
+### Example / Exemplo
 ```python
 my_graph = {
     'A': [('B', 5), ('C', 3), ('E', 11)],
@@ -25,53 +24,21 @@ my_graph = {
     'E': [('A', 11), ('C', 5), ('D', 9)],
     'F': [('B', 2), ('D', 3)]
 }
+
+shortest_path(my_graph, 'A', 'F')
 ```
 
-## Running the Algorithm
-To find the shortest path between nodes in a graph, you can use the function shortest_path().
+## Requirements / Requisitos
+Python 3.x
 
-## Function Parameters:
-- graph: A dictionary representing the graph.
-- start: The starting node for the path search.
-- target: (Optional) A specific target node. If not provided, the distances and paths to all nodes will be shown.
+## How to Contribute / Como Contribuir
+- Fork the repository. / Faça um fork do repositório.
+- Create a branch for your feature: git checkout -b minha-feature. / Crie uma branch para sua feature.
+- Commit your changes: git commit -m 'Adicionei uma nova feature'. / Commit suas mudanças.
+- Push to the branch: git push origin minha-feature. / Push para a branch.
+- Open a pull request and describe your changes. / Abra um pull request e descreva suas mudanças.
 
+## License / Licença
+This project is licensed under the MIT License. See the LICENSE file for details.
 
-```py
-from dijkstra_algorithm import shortest_path
-
-# Example usage
-distances, paths = shortest_path(my_graph, 'A', 'F')
-```
-
-Example Output:
-```py
-A-F distance: 7
-Path: A -> B -> F
-```
-
-## Returning Values
-- distances: A dictionary where the keys are nodes, and the values are the shortest distances from the start node.
-- paths: A dictionary where the keys are nodes, and the values are lists representing the shortest path from the start node.
-
-## Installation
-1. Clone the repository:
-
-```py
-git clone https://github.com/yourusername/shortest_path_finder.git
-
-```
-
-2. Navigate to the project folder:
-
-```py
-cd shortest_path_finder
-```
-
-3. Run the script:
-
-```py
-python dijkstra_algorithm.py
-```
-
-## Customization
-You can modify the my_graph variable with your own graph, adjusting the nodes and edge weights as necessary.
+Este projeto está licenciado sob a MIT License. Veja o arquivo LICENSE para mais detalhes.
