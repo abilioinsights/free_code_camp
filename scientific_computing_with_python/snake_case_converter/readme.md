@@ -48,10 +48,3 @@ The converter iterates through the input string, checks for uppercase characters
 | `ThisIsPascalCase`          | `this_is_pascal_case`|
 | `convertThisToSnakeCase`    | `convert_this_to_snake_case` |
 | `SnakeCase`                 | `snake_case`         |
-
-<h2>Licence</h2>
-
-```less
-Agora o README está totalmente em formato Markdown (`.md`), pronto para ser copiado diretamente para o seu repositório no GitHub!
-
-```
