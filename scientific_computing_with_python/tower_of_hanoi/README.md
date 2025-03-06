@@ -1,33 +1,24 @@
-## Tower of Hanoi Solver
-This Python project is an iterative solver for the Tower of Hanoi puzzle. The Tower of Hanoi is a mathematical puzzle that consists of three rods and a number of disks of different sizes. The goal is to move all the disks from the source rod to the target rod following these rules:
+# Hanoi Iterative / Torres de Hanói Iterativo
 
-- Only one disk can be moved at a time.
-- Each move consists of taking the upper disk from one of the stacks and placing it on top of another stack or an empty rod.
-- No disk may be placed on a smaller disk.
-The script allows the user to input the number of disks, and it displays each move required to solve the puzzle. The total number of moves needed is also shown.
+This Python script solves the Towers of Hanoi problem iteratively. It displays the state of the rods after each move.
 
-## Features
-- Iterative solution to the Tower of Hanoi puzzle.
-- Displays each move in real time.
-- Calculates the total number of moves required to solve the puzzle.
-- Allows the user to input the number of disks.
+Este script Python resolve o problema das Torres de Hanói de forma iterativa. Ele exibe o estado das hastes após cada movimento.
 
-## Usage
-<ol>
-<li>Clone this repository.</li>
-<li>Run the script with Python.</li>
-<li>Enter the number of disks to solve the puzzle.</li>
-</ol>
+## Features / Funcionalidades
+- Solves the Towers of Hanoi problem iteratively. / Resolve o problema das Torres de Hanói de forma iterativa.
+- Displays the state of the rods after each move. / Exibe o estado das hastes após cada movimento.
+- Handles user input for the number of disks. / Lida com a entrada do usuário para o número de discos.
 
-```py
-$ python hanoi_solver.py
-Enter the number of disks: 3
-```
+## How to Use / Como Usar
+Run the script and enter the number of disks. The script will solve the problem and display the state of the rods after each move.
 
-## Example Output:
+Execute o script e insira o número de discos. O script resolverá o problema e exibirá o estado das hastes após cada movimento.
 
-```py
-Enter the number of disks (or type 0 to exit):  3
+### Example / Exemplo
+```bash
+$ python hanoi_iterative.py
+
+Enter the number of disks (or type 0 to exit): 3
 
 Total moves needed: 7
 
@@ -36,50 +27,23 @@ Source (A): [3, 2]
 Auxiliary (B): []
 Target (C): [1]
 
-
 Move 2:
 Source (A): [3]
 Auxiliary (B): [2]
 Target (C): [1]
-
-
-Move 3:
-Source (A): [3]
-Auxiliary (B): [2, 1]
-Target (C): []
-
-
-Move 4:
-Source (A): []
-Auxiliary (B): [2, 1]
-Target (C): [3]
-
-
-Move 5:
-Source (A): [1]
-Auxiliary (B): [2]
-Target (C): [3]
-
-
-Move 6:
-Source (A): [1]
-Auxiliary (B): []
-Target (C): [3, 2]
-
-
-Move 7:
-Source (A): []
-Auxiliary (B): []
-Target (C): [3, 2, 1]
-
 ```
 
-## How it works
-- The script calculates the total number of moves required using the formula 2^n - 1, where n is the number of disks.
-- The moves are calculated iteratively and displayed step by step.
-
-## Requirements
+## Requirements / Requisitos
 Python 3.x
 
-## License
-This project is open-source and free to use under the MIT License.
+## How to Contribute / Como Contribuir
+- Fork the repository. / Faça um fork do repositório.
+- Create a branch for your feature: git checkout -b minha-feature. / Crie uma branch para sua feature.
+- Commit your changes: git commit -m 'Adicionei uma nova feature'. / Commit suas mudanças.
+- Push to the branch: git push origin minha-feature. / Push para a branch.
+- Open a pull request and describe your changes. / Abra um pull request e descreva suas mudanças.
+
+## License / Licença
+This project is licensed under the MIT License. See the LICENSE file for details.
+
+Este projeto está licenciado sob a MIT License. Veja o arquivo LICENSE para mais detalhes.
