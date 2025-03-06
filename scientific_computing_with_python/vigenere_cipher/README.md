@@ -1,51 +1,42 @@
-This project implements the Vigenère Cipher, a classic encryption algorithm used for both encrypting and decrypting text based on a repeating keyword. 
+# Vigenère Cipher / Cifra de Vigenère
 
-The cipher shifts each letter in the message according to the corresponding letter in the key, offering a simple yet effective method of cryptography.
+This Python script implements the Vigenère cipher for encrypting and decrypting messages. It allows the user to set a custom key and interactively encrypt or decrypt text.
 
-<h2>The main features of this project include:</h2>
+Este script Python implementa a cifra de Vigenère para criptografar e descriptografar mensagens. Ele permite que o usuário defina uma chave personalizada e interativamente criptografe ou descriptografe texto.
 
-<ul>
-  <li><strong>Encryption and Decryption Functions:</strong></li>
-  
-The `encrypt` function encodes a given message using a specified key.
-  
-The `decrypt` function decodes the message using the same key, reversing the encryption process.
+## Features / Funcionalidades
+- Encrypts and decrypts messages using the Vigenère cipher. / Criptografa e descriptografa mensagens usando a cifra de Vigenère.
+- Allows the user to set a custom encryption key. / Permite que o usuário defina uma chave de criptografia personalizada.
+- Preserves the original case of letters in the message. / Preserva a formatação original de maiúsculas e minúsculas na mensagem.
+- Handles non-alphabetic characters (e.g., spaces, punctuation). / Lida com caracteres não alfabéticos (espaços, pontuação).
 
-<li><strong>Dynamic Key Input:</strong></li>
-Users are prompted to input a new custom key for encryption/decryption, allowing flexibility in the encryption process.
-<li><strong>Support for Non-Letter Characters:</strong></li>
-Any non-letter characters (spaces, punctuation, numbers) in the message are preserved in their original positions, maintaining the format of the input text.
-<li><strong>Interactive Loop:</strong></li>
-The program runs in an interactive mode, continuously prompting the user for input text and offering the option to modify the encryption key until the user chooses to exit.
-</ul>
-<h2> How It Works:</h2>
-The Vigenère Cipher uses a keyword to determine the shift applied to each letter in the message. The key is repeated or truncated to match the length of the message.
+## How to Use / Como Usar
+Run the script and follow the prompts to encrypt or decrypt messages. You can also change the encryption key during execution.
 
-Each letter in the message is shifted by the number of positions defined by the corresponding letter in the key. For decryption, the reverse operation is applied.
+Execute o script e siga as instruções para criptografar ou descriptografar mensagens. Você também pode alterar a chave de criptografia durante a execução.
 
-The cipher operates on lowercase English letters, while non-alphabetical characters are left unchanged in the final message.
+### Example / Exemplo
+```bash
+$ python vigenere_cipher.py
 
-<h4>Example:</h4>
-Given the text:
+Do you want to change the encryption key? (yes/no): no
 
-```nginx
-mrttaqrhknsw ih puggrur
+Enter the text to decrypt (or type 'exit' to quit): aeiow oqwhr
+
+Decrypted text: hello world
 ```
 
-With the key:
+## Requirements / Requisitos
+Python 3.x
 
-```nginx
-happycoding
-```
-The program decrypts it back to:
+## How to Contribute / Como Contribuir
+- Fork the repository. / Faça um fork do repositório.
+- Create a branch for your feature: git checkout -b minha-feature. / Crie uma branch para sua feature.
+- Commit your changes: git commit -m 'Adicionei uma nova feature'. / Commit suas mudanças.
+- Push to the branch: git push origin minha-feature. / Push para a branch.
+- Open a pull request and describe your changes. / Abra um pull request e descreva suas mudanças.
 
-```nginx
-hello zaira
-```
+## License / Licença
+This project is licensed under the MIT License. See the LICENSE file for details.
 
-<h2>Usage:</h2>
-Run the program, enter the text you'd like to encrypt or decrypt, and input a custom encryption key when prompted. 
-
-You can change the key at any time during execution, allowing multiple encryptions and decryptions with different keys in one session.
-
-This project demonstrates a basic understanding of string manipulation, loops, and conditional logic in Python, while showcasing the classic cryptographic technique of the Vigenère cipher.
+Este projeto está licenciado sob a MIT License. Veja o arquivo LICENSE para mais detalhes.
