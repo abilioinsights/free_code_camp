@@ -1,61 +1,47 @@
-# Merge Sort Interactive
+# Merge Sort / Ordenação por Mesclagem
 
-This project implements the Merge Sort algorithm in Python. It includes an interactive feature that allows the user to either sort a default list of numbers or input their own list. Additionally, the program validates user input to ensure only numbers are provided.
+This Python script implements the Merge Sort algorithm, which is an efficient, stable, and comparison-based sorting algorithm. It allows users to input their own list of numbers or use a default list.
 
-## Features
+Este script Python implementa o algoritmo Merge Sort, que é um algoritmo de ordenação eficiente, estável e baseado em comparação. Ele permite que os usuários insiram sua própria lista de números ou usem uma lista padrão.
 
-- **Merge Sort Algorithm**: Efficient sorting algorithm with O(n log n) time complexity.
-- **Interactive Input**: Users can input their own list of numbers or use the default list.
-- **Input Validation**: Ensures only valid numeric input is processed by checking that each element entered is a number.
+## Features / Funcionalidades
+- Sorts a list of numbers using the Merge Sort algorithm. / Ordena uma lista de números usando o algoritmo Merge Sort.
+- Allows user input for custom lists. / Permite a entrada do usuário para listas personalizadas.
+- Validates user input to ensure only numbers are entered. / Valida a entrada do usuário para garantir que apenas números sejam inseridos.
 
-## Input Validation
+## How to Use / Como Usar
+Run the script and choose an option:  
+Execute o script e escolha uma opção:
 
-The program includes a validation method to ensure that only numeric values are entered. If a non-numeric value is detected, the program will notify the user and prompt for valid input again. This prevents errors and ensures the merge sort works with a clean list of integers.
+1. **Enter your own list of numbers**: Input a list of numbers separated by spaces.  
+   **Inserir sua própria lista de números**: Insira uma lista de números separados por espaços.
+2. **Use the default list**: The script will sort a predefined list of numbers.  
+   **Usar a lista padrão**: O script ordenará uma lista predefinida de números.
 
-### Example of invalid input:
-
-```py
-Enter a list of numbers separated by spaces: 3 a 5 Invalid input: please enter numbers only.
-```
-
-
-## How to Use
-
-1. Run the Python script `merge_sort.py`.
-2. The program will prompt:
-
-```py
-Do you want to enter your own list of numbers? (y/n):
-
-- Type `y` to input your own list of numbers.
-- Type `n` to use the default list: `[4, 10, 6, 14, 2, 1, 8, 5]`.
-```
-
-## 3. If you chose to input your own list, you will be asked to provide the numbers separated by spaces. Example:
-
-```py
-Enter a list of numbers separated by spaces: 3 9 2 7 5
-````
-
-## 4. The program will display the unsorted array, sort it using Merge Sort, and then display the sorted array.
-
+### Example / Exemplo
 ```bash
-## Example
+$ python merge_sort.py
 
-```bash
+Do you want to enter your own list of numbers? (y/n): y
+Enter a list of numbers separated by spaces: 3 5 1 2
+
 Unsorted array: 
-[4, 10, 6, 14, 2, 1, 8, 5]
+[3, 5, 1, 2]
 
 Sorted array: 
-[1, 2, 4, 5, 6, 8, 10, 14]
+[1, 2, 3, 5]
 ```
+## Requirements / Requisitos
+Python 3.x
 
-## How to Run
-Make sure you have Python installed. You can run the program from the terminal or command line:
+## How to Contribute / Como Contribuir
+- Fork the repository. / Faça um fork do repositório.
+- Create a branch for your feature: git checkout -b minha-feature. / Crie uma branch para sua feature.
+- Commit your changes: git commit -m 'Adicionei uma nova feature'. / Commit suas mudanças.
+- Push to the branch: git push origin minha-feature. / Push para a branch.
+- Open a pull request and describe your changes. / Abra um pull request e descreva suas mudanças.
 
-```py
-python merge_sort.py
-```
+## License / Licença
+This project is licensed under the MIT License. See the LICENSE file for details.
 
-## License
-This project is licensed under the MIT License.
+Este projeto está licenciado sob a MIT License. Veja o arquivo LICENSE para mais detalhes.
