@@ -1,50 +1,37 @@
-# PascalCase/CamelCase to Snake_Case Converter
+# Snake Case Converter / Conversor para Snake Case
 
-A simple Python utility to convert strings written in PascalCase or CamelCase into snake_case. This is useful for developers working with naming conventions across different programming languages or APIs that require different case formats.
+This Python script converts strings in PascalCase or camelCase to snake_case. It also handles multiple words in a sentence, converting each word and joining them with underscores.
 
-## Features
+Este script Python converte strings em PascalCase ou camelCase para snake_case. Ele também lida com várias palavras em uma frase, convertendo cada palavra e unindo-as com underscores.
 
-- Converts PascalCase and CamelCase strings to snake_case.
-- Supports converting full words while handling uppercase characters.
-- Ignores and retains non-alphabetic characters like spaces or punctuation.
+## Features / Funcionalidades
+- Converts PascalCase or camelCase to snake_case. / Converte PascalCase ou camelCase para snake_case.
+- Handles multiple words in a sentence. / Lida com várias palavras em uma frase.
+- Simple and easy to use. / Simples e fácil de usar.
 
-## Installation
+## How to Use / Como Usar
+Run the script and enter a sentence in PascalCase or camelCase. The script will convert it to snake_case.
 
-Clone this repository:
+Execute o script e insira uma frase em PascalCase ou camelCase. O script a converterá para snake_case.
 
+### Example / Exemplo
 ```bash
-git clone https://github.com/YOUR_USERNAME/snake_case_converter.git
-cd snake_case_converter
+$ python snake_case_converter.py
+
+Enter a sentence in PascalCase or camelCase: HelloWorld ThisIsATest
+Snake case sentence: hello_world this_is_a_test
 ```
-No external dependencies are required; this project runs on Python's built-in features.
+## Requirements / Requisitos
+Python 3.x
 
-## Usage
-To use the converter, you can simply call the convert_to_snake_case function, passing a PascalCase or CamelCase string as an argument.
+## How to Contribute / Como Contribuir
+- Fork the repository. / Faça um fork do repositório.
+- Create a branch for your feature: git checkout -b minha-feature. / Crie uma branch para sua feature.
+- Commit your changes: git commit -m 'Adicionei uma nova feature'. / Commit suas mudanças.
+- Push to the branch: git push origin minha-feature. / Push para a branch.
+- Open a pull request and describe your changes. / Abra um pull request e descreva suas mudanças.
 
-<h3>Example usage:</h3>
+## License / Licença
+This project is licensed under the MIT License. See the LICENSE file for details.
 
-```py
-from snake_case_converter import convert_to_snake_case
-
-# Convert a PascalCase or CamelCase string to snake_case
-snake_case_string = convert_to_snake_case('ThisIsCamelCase')
-print(snake_case_string)  # Output: this_is_camel_case
-```
-
-<h2>Running the Script</h2>
-<p>Alternatively, you can run the converter directly from the command line by adding a main() function:</p>
-
-```py
-if __name__ == "__main__":
-    print(convert_to_snake_case("MyPascalCasedString"))
-```
-<h2>How It Works</h2>
-The converter iterates through the input string, checks for uppercase characters, converts them to lowercase, and prepends an underscore (_) before each one. Lowercase characters remain unchanged. The final result is returned as a snake_cased string with leading underscores stripped, if necessary.
-
-<h2 style="text-align: center;">Pascal/CamelCase to Snake_Case Conversion</h2>
-
- | Pascal/CamelCase           | Snake_Case           |
-|----------------------------|----------------------|
-| `ThisIsPascalCase`          | `this_is_pascal_case`|
-| `convertThisToSnakeCase`    | `convert_this_to_snake_case` |
-| `SnakeCase`                 | `snake_case`         |
+Este projeto está licenciado sob a MIT License. Veja o arquivo LICENSE para mais detalhes.
