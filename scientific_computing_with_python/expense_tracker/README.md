@@ -1,44 +1,61 @@
-# Expense Tracker
+# Expense Tracker / Rastreador de Despesas
 
-This Python project is a simple **Expense Tracker** application that allows users to add, view, and filter their expenses by category. It also calculates the total expenses for the user. The project is run in the terminal and accepts user input through a menu-based system.
+This Python tool helps you track your expenses by allowing you to add, list, and filter expenses by category. It also calculates the total amount of expenses.
 
-## Features
+Esta ferramenta Python ajuda você a rastrear suas despesas, permitindo adicionar, listar e filtrar despesas por categoria. Ela também calcula o total de despesas.
 
-- **Add an Expense**: Users can input the amount and category for their expenses.
-- **List All Expenses**: Displays all the recorded expenses, showing both amount and category.
-- **Show Total Expenses**: Calculates the total sum of all expenses entered.
-- **Filter Expenses by Category**: Filters and displays expenses based on a specific category.
-- **Exit**: Closes the program when the user is finished.
+## Features / Funcionalidades
+- Add expenses with amount and category. / Adiciona despesas com valor e categoria.
+- List all expenses. / Lista todas as despesas.
+- Calculate total expenses. / Calcula o total de despesas.
+- Filter expenses by category. / Filtra despesas por categoria.
 
-## Prerequisites
+## How to Use / Como Usar
+Run the script and choose an option:  
+Execute o script e escolha uma opção:
 
-- **Python 3.x**: Make sure you have Python installed to run this project. You can download it from [here](https://www.python.org/downloads/).
+1. **Add an expense**: Add a new expense with amount and category.  
+   **Adicionar uma despesa**: Adiciona uma nova despesa com valor e categoria.
+2. **List all expenses**: Display all expenses.  
+   **Listar todas as despesas**: Exibe todas as despesas.
+3. **Show total expenses**: Calculate and display the total amount of expenses.  
+   **Mostrar o total de despesas**: Calcula e exibe o total de despesas.
+4. **Filter expenses by category**: Display expenses for a specific category.  
+   **Filtrar despesas por categoria**: Exibe despesas para uma categoria específica.
+5. **Exit**: Close the program.  
+   **Sair**: Fechar o programa.
 
-## Usage
+### Example / Exemplo
+```bash
+$ python expense_tracker.py
 
-1. Clone the repository or download the `expense_manager.py` file into your local machine.
-2. Open a terminal and navigate to the folder containing `expense_manager.py`.
-3. Run the following command to start the expense tracker:
+Expense Tracker
+1. Add an expense
+2. List all expenses
+3. Show total expenses
+4. Filter expenses by category
+5. Exit
 
-    ```bash
-    python expense_manager.py
-    ```
+Enter your choice: 1
+Enter amount: 50
+Enter category: Food
 
-4. Follow the on-screen instructions to:
-   - Add expenses
-   - List all expenses
-   - View the total expenses
-   - Filter expenses by category
-   - Exit the program
+Enter your choice: 2
+All Expenses:
+Amount: 50.0, Category: Food
+```
 
-## Functions Overview
+## Requirements / Requisitos
+Python 3.x
 
-- `add_expense(expenses, amount, category)`: Adds an expense entry to the `expenses` list.
-- `print_expenses(expenses)`: Prints all the expenses in a readable format.
-- `total_expenses(expenses)`: Calculates and returns the total amount of expenses.
-- `filter_expenses_by_category(expenses, category)`: Filters and returns expenses for a specific category.
-- `main()`: The main program that runs the menu and handles user interaction.
+## How to Contribute / Como Contribuir
+- Fork the repository. / Faça um fork do repositório.
+- Create a branch for your feature: git checkout -b minha-feature. / Crie uma branch para sua feature.
+- Commit your changes: git commit -m 'Adicionei uma nova feature'. / Commit suas mudanças.
+- Push to the branch: git push origin minha-feature. / Push para a branch.
+- Open a pull request and describe your changes. / Abra um pull request e descreva suas mudanças.
 
-## License
+## License / Licença
+This project is licensed under the MIT License. See the LICENSE file for details.
 
-This project is free to use and modify. Feel free to customize it for your needs.
+Este projeto está licenciado sob a MIT License. Veja o arquivo LICENSE para mais detalhes.
