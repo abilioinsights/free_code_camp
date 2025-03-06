@@ -1,15 +1,32 @@
 def add_expense(expenses, amount, category):
+    """Adiciona uma despesa à lista de despesas."""
     expenses.append({'amount': amount, 'category': category})
 
 def print_expenses(expenses):
+    """Exibe todas as despesas."""
     for expense in expenses:
         print(f'Amount: {expense["amount"]}, Category: {expense["category"]}')
 
 def total_expenses(expenses):
-    return sum(map(lambda expense: expense['amount'], expenses))
+    """Calcula o total de despesas."""
+    return sum(expense['amount'] for expense in expenses)
 
 def filter_expenses_by_category(expenses, category):
-    return filter(lambda expense: expense['category'] == category, expenses)
+    """Filtra despesas por categoria."""
+    return [expense for expense in expenses if expense['category'] == category]
+
+def get_expense_input():
+    """Solicita ao usuário o valor e a categoria da despesa."""
+    while True:
+        try:
+            amount = float(input('Enter amount: '))
+            if amount < 0:
+                print("O valor da despesa deve ser um número positivo.")
+                continue
+            category = input('Enter category: ')
+            return amount, category
+        except ValueError:
+            print("Entrada inválida. Insira um número válido para o valor.")
 
 def main():
     expenses = []
@@ -24,8 +41,7 @@ def main():
         choice = input('Enter your choice: ')
 
         if choice == '1':
-            amount = float(input('Enter amount: '))
-            category = input('Enter category: ')
+            amount, category = get_expense_input()
             add_expense(expenses, amount, category)
 
         elif choice == '2':
@@ -44,3 +60,8 @@ def main():
         elif choice == '5':
             print('Exiting the program.')
             break
+        else:
+            print('Invalid choice. Try again.')
+
+if __name__ == "__main__":
+    main()
