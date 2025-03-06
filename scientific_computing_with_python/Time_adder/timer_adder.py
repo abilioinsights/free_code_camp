@@ -2,6 +2,52 @@ def add_time(start, duration, day_of_week=None):
     # Dictionary for days of the week and their indices
     days_of_week = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday']
     
+    # Validate input
+    def validate_input(start_hour, start_minute, duration_hour, duration_minute, day_of_week):
+        if start_hour < 0 or start_hour > 12 or start_minute < 0 or start_minute > 59:
+            raise ValueError("Horário inicial inválido.")
+        if duration_hour < 0 or duration_minute < 0 or duration_minute > 59:
+            raise ValueError("Duração inválida.")
+        if day_of_week and day_of_week.capitalize() not in days_of_week:
+            raise ValueError("Dia da semana inválido.")
+    
+    # Convert to 24-hour format
+    def convert_to_24_hour_format(time, period):
+        if period == 'PM' and time != 12:
+            return time + 12
+        elif period == 'AM' and time == 12:
+            return 0
+        return time
+    
+    # Convert to 12-hour format
+    def convert_to_12_hour_format(time):
+        if time == 0:
+            return 12, 'AM'
+        elif time < 12:
+            return time, 'AM'
+        elif time == 12:
+            return 12, 'PM'
+        else:
+            return time - 12, 'PM'
+    
+    # Calculate new day of the week
+    def calculate_new_day(start_day, days_later):
+        if not start_day:
+            return None
+        day_index = days_of_week.index(start_day.capitalize())
+        return days_of_week[(day_index + days_later) % 7]
+    
+    # Format the final result
+    def format_result(end_hour, end_minute, period, new_day, days_later):
+        new_time = f'{end_hour}:{end_minute:02d} {period}'
+        if new_day:
+            new_time += f', {new_day}'
+        if days_later == 1:
+            new_time += ' (next day)'
+        elif days_later > 1:
+            new_time += f' ({days_later} days later)'
+        return new_time
+    
     # Splitting start time into hour, minute, and period (AM/PM)
     start_time, period = start.split()
     start_hour, start_minute = map(int, start_time.split(':'))
@@ -9,55 +55,34 @@ def add_time(start, duration, day_of_week=None):
     # Splitting duration into hours and minutes
     duration_hour, duration_minute = map(int, duration.split(':'))
     
-    # Converting to 24-hour format to simplify calculations
-    if period == 'PM' and start_hour != 12:  # If PM and not 12, add 12 hours
-        start_hour += 12
-    elif period == 'AM' and start_hour == 12:  # If AM and 12 o'clock, it's 0 (midnight)
-        start_hour = 0
+    # Validate input
+    validate_input(start_hour, start_minute, duration_hour, duration_minute, day_of_week)
+    
+    # Convert to 24-hour format
+    start_hour = convert_to_24_hour_format(start_hour, period)
     
     # Adding duration minutes to start minutes
     end_minute = start_minute + duration_minute
-    
-    # If minutes exceed 60, convert the excess into hours
     end_hour = start_hour + duration_hour + end_minute // 60
-    
-    # Keeping only the remaining minutes (if they exceed 60)
     end_minute %= 60
     
-    # Calculating how many days passed based on the total number of hours
+    # Calculating how many days passed
     days_later = end_hour // 24
-    
-    # Keeping only the remaining hours (after removing excess days)
     end_hour %= 24
     
-    # Converting back to 12-hour format
-    if end_hour == 0:
-        period = 'AM'
-        end_hour = 12  # If it's midnight in 24-hour format, convert to 12 AM
-    elif end_hour < 12:
-        period = 'AM'  # AM period if hours are below 12
-    elif end_hour == 12:
-        period = 'PM'  # Exactly 12 hours in 24-hour format is 12 PM
-    else:
-        period = 'PM'
-        end_hour -= 12  # Converting back to 12-hour format
+    # Convert back to 12-hour format
+    end_hour, period = convert_to_12_hour_format(end_hour)
     
-    # Determining the resulting day of the week, if provided
-    if day_of_week:
-        day_index = days_of_week.index(day_of_week.capitalize())
-        new_day = days_of_week[(day_index + days_later) % 7]  # Calculating the new day of the week
+    # Calculate new day of the week
+    new_day = calculate_new_day(day_of_week, days_later)
     
-    # Building the string for the new time
-    new_time = f'{end_hour}:{end_minute:02d} {period}'
-    
-    # If there's a day of the week, add it to the result
-    if day_of_week:
-        new_time += f', {new_day}'
-    
-    # Adding "(next day)" or "(n days later)" if applicable
-    if days_later == 1:
-        new_time += ' (next day)'
-    elif days_later > 1:
-        new_time += f' ({days_later} days later)'
-    
-    return new_time
+    # Format and return the result
+    return format_result(end_hour, end_minute, period, new_day, days_later)
+
+# Example calls
+print(add_time('3:00 PM', '3:10'))
+print(add_time('11:30 AM', '2:32', 'Monday'))
+print(add_time('11:43 AM', '00:20'))
+print(add_time('10:10 PM', '3:30'))
+print(add_time('11:43 PM', '24:20', 'tueSday'))
+print(add_time('6:30 PM', '205:12'))
