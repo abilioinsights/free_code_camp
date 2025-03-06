@@ -1,55 +1,43 @@
-# Arithmetic Formatter
+# Arithmetic Arranger / Organizador Aritmético
 
-A Python function that takes a list of arithmetic problems (addition and subtraction) and formats them neatly in columns, adhering to specific rules.
+This Python function formats arithmetic problems vertically and arranges them neatly. It supports addition and subtraction and can optionally display the results.
 
-## Features
+Esta função Python formata problemas aritméticos verticalmente e os organiza de forma clara. Ela suporta adição e subtração e pode opcionalmente exibir os resultados.
 
-- Supports addition (`+`) and subtraction (`-`) problems.
-- Ensures proper formatting with numbers right-aligned and results displayed under the dashes.
-- Displays up to 5 problems at a time.
-- Optionally shows the answers to the problems.
+## Features / Funcionalidades
+- Formats arithmetic problems vertically. / Formata problemas aritméticos verticalmente.
+- Supports addition and subtraction. / Suporta adição e subtração.
+- Optionally displays the results. / Exibe os resultados opcionalmente.
+- Handles errors for invalid input. / Lida com erros de entrada inválida.
 
-## Requirements
+## How to Use / Como Usar
+The function `arithmetic_arranger` takes two parameters:  
+A função `arithmetic_arranger` recebe dois parâmetros:
+1. `problems`: A list of arithmetic problems (e.g., `["32 + 698", "3801 - 2"]`).  
+   Uma lista de problemas aritméticos (por exemplo, `["32 + 698", "3801 - 2"]`).
+2. `show_answers` (optional): If `True`, the results are displayed.  
+   Se `True`, os resultados são exibidos.
 
-- Python 3.x
-
-## Installation
-
-Clone this repository to your local machine:
-
-```bash
-git clone https://github.com/your-username/arithmetic_formatter.git
-cd arithmetic_formatter
-```
-
-## Usage
-<p>Import the arithmetic_arranger function and pass a list of arithmetic problems to it.</p>
-
-```py
+### Example / Exemplo
+```python
 from arithmetic_arranger import arithmetic_arranger
 
-# List of problems to format
-problems = ["32 + 698", "3801 - 2", "45 + 43", "123 + 49"]
-
-# Call the function with or without showing the answers
-print(arithmetic_arranger(problems, show_answers=True))
+# Format problems and show answers
+# Formata problemas e exibe os resultados
+print(arithmetic_arranger(["32 + 698", "3801 - 2", "45 + 43", "123 + 49"], show_answers=True))
 ```
 
-## Example Output
-```diff
-   32      3801      45      123
-+ 698    -    2    + 43    +  49
------    ------    ----    -----
-  730      3799      88      172
-```
-## Error Handling:
-- Too many problems: If more than 5 problems are provided, the function will return ``Error: Too many problems``.
-- Invalid operator: The function only supports + and -. Any other operators will return ``Error: Operator must be '+' or '-'``.
-- Invalid numbers: If any of the numbers contain non-digit characters, the function will return ``Error: Numbers must only contain digits``.
-- Number length: If any of the numbers are more than four digits long, the function will return ``Error: Numbers cannot be more than four digits``.
+## Requirements / Requisitos
+Python 3.x
 
-## Contributing
-<p> Feel free to open issues or submit pull requests for improvements or bug fixes.</p>
+## How to Contribute / Como Contribuir
+- Fork the repository. / Faça um fork do repositório.
+- Create a branch for your feature: git checkout -b minha-feature. / Crie uma branch para sua feature.
+- Commit your changes: git commit -m 'Adicionei uma nova feature'. / Commit suas mudanças.
+- Push to the branch: git push origin minha-feature. / Push para a branch.
+- Open a pull request and describe your changes. / Abra um pull request e descreva suas mudanças.
 
-## License
-<p>This project is licensed under the MIT License. See the LICENSE file for more details.</p>
+## License / Licença
+This project is licensed under the MIT License. See the LICENSE file for details.
+
+Este projeto está licenciado sob a MIT License. Veja o arquivo LICENSE para mais detalhes.
