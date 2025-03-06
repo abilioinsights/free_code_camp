@@ -1,5 +1,24 @@
 import random
 
+# Constants for card prefixes and lengths
+CARD_PREFIXES = {
+    "Visa": ["4"],
+    "MasterCard": [str(i) for i in range(51, 56)] + [str(i) for i in range(2221, 2721)],
+    "American Express": ["34", "37"],
+    "Diners Club": ["300", "301", "302", "303", "304", "305", "36", "38"],
+    "Discover": ["6011", "65"] + [str(i) for i in range(622126, 622926)] + [str(i) for i in range(644, 650)],
+    "JCB": ["35"]
+}
+
+CARD_LENGTHS = {
+    "Visa": [13, 16],
+    "MasterCard": [16],
+    "American Express": [15],
+    "Diners Club": [14],
+    "Discover": [16, 18, 19],
+    "JCB": [16]
+}
+
 def luhn_generate_check_digit(partial_card_number):
     """Calculates the correct check digit for a valid card number."""
     digits = [int(d) for d in partial_card_number]
@@ -11,20 +30,11 @@ def luhn_generate_check_digit(partial_card_number):
 
 def generate_card_number(card_type):
     """Generates a valid card number for a specific card brand."""
-    card_prefixes = {
-        "Visa": ["4"],
-        "MasterCard": [str(i) for i in range(51, 56)] + [str(i) for i in range(2221, 2721)],
-        "American Express": ["34", "37"],
-        "Diners Club": ["300", "301", "302", "303", "304", "305", "36", "38"],
-        "Discover": ["6011", "65"] + [str(i) for i in range(622126, 622926)] + [str(i) for i in range(644, 650)],
-        "JCB": ["35"]
-    }
-    
-    if card_type not in card_prefixes:
+    if card_type not in CARD_PREFIXES:
         return None
 
-    prefix = random.choice(card_prefixes[card_type])
-    length = 16 if card_type not in ["American Express", "Diners Club"] else 15
+    prefix = random.choice(CARD_PREFIXES[card_type])
+    length = random.choice(CARD_LENGTHS[card_type])
 
     random_digits = ''.join(str(random.randint(0, 9)) for _ in range(length - len(prefix) - 1))
     partial_card_number = prefix + random_digits
@@ -54,20 +64,25 @@ def verify_card_number(card_number):
 
 def get_card_type(card_number):
     """Detects the card brand based on the first digits."""
-    if card_number.startswith('4') and len(card_number) in [13, 16]:
+    if card_number.startswith('4') and len(card_number) in CARD_LENGTHS["Visa"]:
         return "Visa"
     elif any(card_number.startswith(str(i)) for i in range(51, 56)) or any(card_number.startswith(str(i)) for i in range(2221, 2721)):
         return "MasterCard"
-    elif card_number.startswith(('34', '37')) and len(card_number) == 15:
+    elif card_number.startswith(('34', '37')) and len(card_number) == CARD_LENGTHS["American Express"][0]:
         return "American Express"
-    elif card_number.startswith(('300', '301', '302', '303', '304', '305', '36', '38')) and len(card_number) == 14:
+    elif card_number.startswith(('300', '301', '302', '303', '304', '305', '36', '38')) and len(card_number) == CARD_LENGTHS["Diners Club"][0]:
         return "Diners Club"
     elif card_number.startswith(('6011', '65')) or any(card_number.startswith(str(i)) for i in range(622126, 622926)) or any(card_number.startswith(str(i)) for i in range(644, 650)):
         return "Discover"
-    elif card_number.startswith('35') and len(card_number) == 16:
+    elif card_number.startswith('35') and len(card_number) == CARD_LENGTHS["JCB"][0]:
         return "JCB"
     else:
         return "Unknown"
+
+def clean_card_number(card_number):
+    """Remove spaces and hyphens from the card number."""
+    card_translation = str.maketrans({'-': '', ' ': ''})
+    return card_number.translate(card_translation)
 
 def main():
     while True:
@@ -83,15 +98,14 @@ def main():
             if card_number.lower() == 'back':
                 continue
 
-            card_translation = str.maketrans({'-': '', ' ': ''})
-            translated_card_number = card_number.translate(card_translation)
+            cleaned_card_number = clean_card_number(card_number)
 
-            if not translated_card_number.isdigit():
+            if not cleaned_card_number.isdigit():
                 print("Invalid number! Enter only digits, spaces, or hyphens.")
                 continue
 
-            card_type = get_card_type(translated_card_number)
-            is_valid = verify_card_number(translated_card_number)
+            card_type = get_card_type(cleaned_card_number)
+            is_valid = verify_card_number(cleaned_card_number)
 
             print(f"Card Type: {card_type}")
             print("Status: VALID!" if is_valid else "Status: INVALID!")
