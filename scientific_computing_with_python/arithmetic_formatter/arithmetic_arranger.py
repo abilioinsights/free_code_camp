@@ -1,32 +1,29 @@
 def arithmetic_arranger(problems, show_answers=False):
+    # Constants
+    MAX_PROBLEMS = 5
+    MAX_DIGITS = 4
+
     # Check if there are too many problems
-    if len(problems) > 5:
+    if len(problems) > MAX_PROBLEMS:
         return "Error: Too many problems."
 
     # Lists to store the formatted parts
-    top_lines = []  # stores the first line numbers
-    bottom_lines = []  # stores the operators and second numbers
-    separators = []  # stores the dashes ----
-    results = []  # stores the result of each operation
+    top_lines = []  # Stores the first line numbers
+    bottom_lines = []  # Stores the operators and second numbers
+    separators = []  # Stores the dashes ----
+    results = []  # Stores the result of each operation
 
-    for operations in problems:
+    for operation in problems:
         # Split the operation into operands and operator
-        operand_first_line, operator_symbol, operand_second_line = operations.split()
+        operand_first_line, operator_symbol, operand_second_line = operation.split()
 
-        # Check if the operator is valid (must be '+' or '-')
-        if operator_symbol not in ['+', '-']:
-            return "Error: Operator must be '+' or '-'."
-
-        # Check if both operands are digits
-        if not (operand_first_line.isdigit() and operand_second_line.isdigit()):
-            return "Error: Numbers must only contain digits."
-
-        # Check if the operands are within the 4 digits limit
-        if len(operand_first_line) > 4 or len(operand_second_line) > 4:
-            return "Error: Numbers cannot be more than four digits."
+        # Validate input
+        error = validate_input(operand_first_line, operand_second_line, operator_symbol)
+        if error:
+            return error
 
         # Calculate the result of the operation
-        result = str(eval(operations))
+        result = calculate_result(operand_first_line, operand_second_line, operator_symbol)
 
         # Calculate the length needed for proper formatting
         length = max(len(operand_first_line), len(operand_second_line)) + 2
@@ -51,6 +48,25 @@ def arithmetic_arranger(problems, show_answers=False):
         arranged_problems += "\n" + "    ".join(results)
 
     return arranged_problems
+
+
+def validate_input(operand_first_line, operand_second_line, operator_symbol):
+    """Valida a entrada do problema aritmético."""
+    if operator_symbol not in ['+', '-']:
+        return "Error: Operator must be '+' or '-'."
+    if not (operand_first_line.isdigit() and operand_second_line.isdigit()):
+        return "Error: Numbers must only contain digits."
+    if len(operand_first_line) > 4 or len(operand_second_line) > 4:
+        return "Error: Numbers cannot be more than four digits."
+    return None
+
+
+def calculate_result(operand_first_line, operand_second_line, operator_symbol):
+    """Calcula o resultado da operação."""
+    if operator_symbol == '+':
+        return str(int(operand_first_line) + int(operand_second_line))
+    else:
+        return str(int(operand_first_line) - int(operand_second_line))
 
 # Example usage
 print(arithmetic_arranger(["32 + 698", "3801 - 2", "45 + 43", "123 + 49"], show_answers=True))
