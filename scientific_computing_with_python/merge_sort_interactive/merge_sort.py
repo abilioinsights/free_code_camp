@@ -1,4 +1,5 @@
 def merge_sort(array):
+    """Ordena uma lista usando o algoritmo Merge Sort."""
     if len(array) <= 1:
         return
     
@@ -34,17 +35,24 @@ def merge_sort(array):
 
 def is_valid_number_list(input_str):
     """
-    This function checks if the input string contains only valid numbers (integers).
+    Checks if the input string contains only valid numbers (integers).
     Returns True if valid, False otherwise.
     """
     try:
-        # Try converting each element to an integer
         list(map(int, input_str.split()))
         return True
     except ValueError:
         return False
 
-if __name__ == '__main__':
+def get_user_input():
+    """Prompts the user for a list of numbers and validates the input."""
+    user_numbers = input('Enter a list of numbers separated by spaces: ').strip()
+    while not is_valid_number_list(user_numbers):
+        print("Invalid input. Please enter a valid list of numbers (e.g., '3 5 1 2').")
+        user_numbers = input('Enter a list of numbers separated by spaces: ').strip()
+    return list(map(int, user_numbers.split()))
+
+def main():
     # Default list of numbers
     default_numbers = [4, 10, 6, 14, 2, 1, 8, 5]
     
@@ -52,15 +60,7 @@ if __name__ == '__main__':
     user_input = input('Do you want to enter your own list of numbers? (y/n): \n').strip().lower()
     
     if user_input == 'y':
-        user_numbers = input('Enter a list of numbers separated by spaces: ').strip()
-        
-        # Validate user input
-        while not is_valid_number_list(user_numbers):
-            print("Invalid input. Please enter a valid list of numbers.\n")
-            user_numbers = input('Enter a list of numbers separated by spaces: ').strip()
-        
-        # Convert valid input to a list of integers
-        numbers = list(map(int, user_numbers.split()))
+        numbers = get_user_input()
     else:
         numbers = default_numbers
 
@@ -71,3 +71,6 @@ if __name__ == '__main__':
     
     print('\nSorted array: ')
     print(numbers)
+
+if __name__ == '__main__':
+    main()
