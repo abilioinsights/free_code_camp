@@ -71,7 +71,25 @@ Cada projeto está organizado em sua própria pasta, contendo o código-fonte e 
 ### 3. **Square Root Bisection**
    - **Descrição:** Método da bissecção para calcular raízes quadradas de forma numérica.
    - **Habilidades Demonstradas:** Métodos numéricos, cálculos matemáticos e aproximação.
-   - [Ver Projeto]([/square-root-bisection](https://github.com/abilioinsights/free_code_camp/tree/main/scientific_computing_with_python/square-root-bisection))
+   - [Ver Projeto](https://github.com/abilioinsights/free_code_camp/tree/main/scientific_computing_with_python/square-root-bisection)
+
+---
+
+## 🌳 **Estruturas de Dados**
+
+### 1. **Binary Search Tree (BST)**
+   - **Descrição:** Implementação de uma Árvore Binária de Busca (BST) com operações de inserção, busca, remoção e travessia em ordem.
+   - **Habilidades Demonstradas:** Estruturas de dados, recursão e algoritmos de árvores.
+   - [Ver Projeto](https://github.com/abilioinsights/free_code_camp/blob/main/scientific_computing_with_python/binary-search-tree/readme.md)
+
+---
+
+## 💰 **Aplicações Práticas**
+
+### 1. **Budget App**
+   - **Descrição:** Um aplicativo de orçamento para gerenciar categorias, depósitos, retiradas e transferências, com geração de um gráfico de gastos.
+   - **Habilidades Demonstradas:** Manipulação de dados, formatação de strings e geração de gráficos.
+   - [Ver Projeto](https://github.com/abilioinsights/free_code_camp/tree/main/scientific_computing_with_python/budget_app)
 
 ---
 
@@ -84,17 +102,5 @@ Cada projeto está organizado em sua própria pasta, contendo o código-fonte e 
 
 ## 🚀 **Como Usar**
 1. Clone este repositório:
-```bash
- git clone https://github.com/abilioinsights/freecodecamp.git
-```
-
-## Navegue até a pasta do projeto desejado:
-```bash
-cd freecodecamp/nome_do_projeto
-```
-
-## Execute o código Python:
-
-```bash
-python nome_do_arquivo.py
-```
+   ```bash
+   git clone https://github.com/abilioinsights/freecodecamp.git
