@@ -74,4 +74,17 @@ v10 = v7 * v8
 print(f'v7 * v8 = {v10}')
 ```
 
+## Requirements / Requisitos
+Python 3.x
 
+## How to Contribute / Como Contribuir
+- Fork the repository. / Faça um fork do repositório.
+- Create a branch for your feature: git checkout -b minha-feature. / Crie uma branch para sua feature.
+- Commit your changes: git commit -m 'Adicionei uma nova feature'. / Commit suas mudanças.
+- Push to the branch: git push origin minha-feature. / Push para a branch.
+- Open a pull request and describe your changes. / Abra um pull request e descreva suas mudanças.
+
+## License / Licença
+This project is licensed under the MIT License. See the LICENSE file for details.
+
+Este projeto está licenciado sob a MIT License. Veja o arquivo LICENSE para mais detalhes.
