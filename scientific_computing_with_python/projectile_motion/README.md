@@ -4,7 +4,7 @@ Este projeto simula o movimento de um projétil lançado com uma velocidade inic
 
 This project simulates the motion of a projectile launched with a specific initial speed, height, and angle. It provides detailed calculations of the projectile's trajectory, including the horizontal displacement, maximum height, and a visual graph representation of the trajectory.
 
-##⚡ Funcionalidades / Features
+## ⚡ Funcionalidades / Features
 
 - Cálculo da distância horizontal percorrida (deslocamento).	|	- Calculation of the horizontal displacement (range).
   
