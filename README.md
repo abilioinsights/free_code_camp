@@ -84,23 +84,34 @@ Cada projeto está organizado em sua própria pasta, contendo o código-fonte e 
 
 ---
 
-## 💰 **Aplicações Práticas**
+## ⚙️ **Matemática e Computação Científica**
 
-### 1. **Budget App**
-   - **Descrição:** Um aplicativo de orçamento para gerenciar categorias, depósitos, retiradas e transferências, com geração de um gráfico de gastos.
-   - **Habilidades Demonstradas:** Manipulação de dados, formatação de strings e geração de gráficos.
-   - [Ver Projeto](https://github.com/abilioinsights/free_code_camp/tree/main/scientific_computing_with_python/budget_app)
+### 1. **Equation Solver**
+   - **Descrição:** Resolvedor de equações matemáticas, incluindo sistemas lineares.
+   - **Habilidades Demonstradas:** Álgebra linear, resolução de equações e manipulação de expressões matemáticas.
+   - [Ver Projeto](https://github.com/abilioinsights/free_code_camp/tree/main/scientific_computing_with_python/equation_solver)
+
+### 2. **Projectile Motion**
+   - **Descrição:** Simulação do movimento de um projétil, considerando física básica.
+   - **Habilidades Demonstradas:** Cálculos físicos, simulação e representação gráfica.
+   - [Ver Projeto](https://github.com/abilioinsights/free_code_camp/tree/main/scientific_computing_with_python/projectile_motion)
+
+### 3. **Probability Calculator**
+   - **Descrição:** Ferramenta para calcular probabilidades estatísticas com base em eventos aleatórios.
+   - **Habilidades Demonstradas:** Estatística, probabilidade e análise de eventos.
+   - [Ver Projeto](https://github.com/abilioinsights/free_code_camp/tree/main/scientific_computing_with_python/probability_calculator)
 
 ---
 
 ## 🛠 **Tecnologias Utilizadas**
-- **Linguagem Principal:** Python
-- **Bibliotecas:** `random`, `math`, `re`, `numpy` (em alguns projetos)
+- **Linguagem Principal:** Python 🐍
+- **Bibliotecas:** `random`, `math`, `re`, `numpy`, `pandas`, `matplotlib`
 - **Ferramentas:** Visual Studio Code, Git, Jupyter Notebook
 
 ---
 
 ## 🚀 **Como Usar**
 1. Clone este repositório:
-   ```bash
-   git clone https://github.com/abilioinsights/freecodecamp.git
+```bash
+git clone https://github.com/abilioinsights/freecodecamp.git
+```
